@@ -1,37 +1,33 @@
-# pc
-Scripts Batch e PowerShell para manutenção, otimização e gerenciamento do Windows, incluindo reparos do sistema, atualizações, configurações de rede e controle do Firewall.
+# PC
 
-Conjunto de scripts em Batch e PowerShell desenvolvidos para auxiliar na manutenção, otimização e gerenciamento de computadores com Windows.
+Scripts Batch e PowerShell desenvolvidos para auxiliar na manutenção, otimização e gerenciamento do Windows.
 
 ## Funcionalidades
 
-- Ajustes de configurações do sistema e memória.
-- Redefinição de configurações de rede e limpeza de DNS.
-- Verificação e reparo de arquivos do Windows (SFC e DISM).
-- Verificação e reparo de unidades de armazenamento (CHKDSK).
-- Atualização de programas utilizando Winget.
-- Teste de memória do Windows.
-- Gerenciamento de configurações de energia e hibernação.
-- Limpeza da Microsoft Store (WSReset).
-- Gerenciamento de regras do Firewall do Windows.
-- Bloqueio e desbloqueio de executáveis por meio do PowerShell.
+- Reparação de arquivos do sistema com SFC e DISM.
+- Verificação de discos com CHKDSK.
+- Atualização de programas com Winget.
+- Configuração e diagnóstico de rede.
+- Gerenciamento de energia e hibernação.
+- Limpeza do cache da Microsoft Store.
+- Gerenciamento do Firewall do Windows.
+- Bloqueio e desbloqueio de executáveis.
 
-## Tecnologias utilizadas
+## Tecnologias
 
 - Batch (.bat)
 - PowerShell (.ps1)
 - Windows CMD
-- Windows PowerShell
 - Windows Firewall
-- DISM e SFC
+- SFC e DISM
 - Winget
 
 ## Objetivo
 
-Praticar automação de tarefas administrativas, manutenção do sistema operacional e gerenciamento de recursos do Windows por meio de scripts.
+Praticar automação, manutenção e gerenciamento do Windows por meio de scripts, facilitando tarefas administrativas e o diagnóstico de problemas no sistema.
 
 ## Aviso
 
-Execute os scripts com privilégios de administrador quando necessário. Revise os comandos antes da execução, pois algumas operações alteram configurações do sistema, da rede e do Firewall.
+Alguns comandos exigem privilégios de administrador e podem alterar configurações do sistema, da rede e do Firewall. Revise os scripts antes de executá-los.
 
 **Uso por sua conta e risco.**
