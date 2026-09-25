@@ -1,0 +1,24 @@
+@echo off
+net session >nul 2>&1
+if %errorLevel% neq 0 (
+    powershell -Command "Start-Process '%~f0' -Verb RunAs"
+    exit /b
+)
+
+sfc /scannow
+
+dism /online /cleanup-image /checkhealth
+dism /online /cleanup-image /restorehealth
+
+chkdsk c: /f /r
+chkdsk d: /f /r
+
+winget upgrade
+winget upgrade --all --force --include-unknown
+
+set /p rodarmem="Deseja rodar o teste de memoria (mdsched) agora? Isso vai reiniciar o PC. (S/N): "
+if /i "%rodarmem%"=="S" (
+    mdsched
+)
+
+pause

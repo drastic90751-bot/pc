@@ -1,0 +1,27 @@
+$paths = @("", "")
+
+function Ativar-Bloqueio {
+    foreach ($path in $paths) {
+        Get-ChildItem $path -Recurse -Filter *.exe | ForEach-Object {
+            New-NetFirewallRule -DisplayName "Block IN - $($_.Name)" -Direction Inbound -Program $_.FullName -Action Block -Profile Any
+            New-NetFirewallRule -DisplayName "Block OUT - $($_.Name)" -Direction Outbound -Program $_.FullName -Action Block -Profile Any
+        }
+    }
+}
+
+function Desativar-Bloqueio {
+    Get-NetFirewallRule | Where-Object DisplayName -like "Block *" | Remove-NetFirewallRule
+}
+
+function Ver-Bloqueio {
+    Get-NetFirewallRule | Where-Object DisplayName -like "Block *" | Format-Table DisplayName, Enabled, Direction, Action
+}
+
+$opcao = Read-Host "Digite: ativar, desativar ou ver"
+
+switch ($opcao) {
+    "ativar"    { Ativar-Bloqueio }
+    "desativar" { Desativar-Bloqueio }
+    "ver"       { Ver-Bloqueio }
+    default     { Write-Host "Opcao invalida. Use: ativar, desativar ou ver" }
+}
